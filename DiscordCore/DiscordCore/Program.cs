@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using System.Timers;
+using Discord = Discord;
+
 
 namespace DiscordCore
 {

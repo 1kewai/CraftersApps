@@ -11,11 +11,11 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("DiscordCore")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ikewai")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("DiscordCore")]
+[assembly: System.Reflection.AssemblyProductAttribute("CraftersDiscord")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiscordCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
