@@ -39,6 +39,11 @@ namespace Log
             return;
         }
 
+        public void MessageSend(string Message)
+        {
+            log("[Message] " + "Sending a message : " + Message);
+        }
+
         public void MemberUpdate(SocketGuildUser inputUser, int i)
         {
             string[] tmp = new string[2];

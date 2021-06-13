@@ -30,5 +30,11 @@ namespace Resource
                 }
             }
         }
+
+        //テスト用
+        public void fakeLoad()
+        {
+
+        }
     }
 }
