@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VMController
 {
-    class azuremachine
+    class AzureMachine
     {
         string vmid;
         bool booted;
