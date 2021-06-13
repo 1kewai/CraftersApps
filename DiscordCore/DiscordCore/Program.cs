@@ -139,6 +139,32 @@ namespace DiscordCore
                             await del.DeleteAsync();
                             logging.log("Deleted the message :" + content);
                             break;
+                        //メッセージ送信
+                        case "send":
+                            //roomIDとメッセージの送信内容の入力
+                            Console.Write("RoomID:");
+                            ulong roomID_Send = ulong.Parse(Console.ReadLine());
+                            Console.Write("Message:");
+                            string message_Send = Console.ReadLine();
+                            //送信
+                            logging.MessageSend(message_Send);
+                            await client.GetGuild(ulong.Parse(prop.settings["GuildID"])).GetTextChannel(roomID_Send).SendMessageAsync(message_Send);
+                            break;
+                        //ステータス確認
+                        case "ConnectionState":
+                            Console.WriteLine(client.ConnectionState.ToString());
+                            break;
+                        case "latency":
+                            Console.WriteLine(client.Latency);
+                            break;
+                        //Memory関係/不停止メンテナンス用
+                        case "Memory":
+                            Console.WriteLine("Memory usage : " + GC.GetTotalMemory(false));
+                            break;
+                        case "GC":
+                            GC.Collect();
+                            Console.WriteLine("Collected.");
+                            break;
                     }
                 }catch(Exception e)
                 {
