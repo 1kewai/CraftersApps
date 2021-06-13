@@ -7,7 +7,7 @@ namespace Resource
     class property
     {
         //Field
-        Dictionary<string,string> settings;
+        public Dictionary<string,string> settings;
         public void load()
         {
             //読み込み
@@ -36,5 +36,14 @@ namespace Resource
         {
 
         }
+
+        //Fields
+        /*
+         * DiscordToken : Discordへの認証トークン
+         * 
+         * 
+         * 
+         * 
+         */
     }
 }
