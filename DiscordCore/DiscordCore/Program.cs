@@ -96,26 +96,53 @@ namespace DiscordCore
             bool CLICONT = false;
             while (CLICONT)
             {
-                string stdin = Console.ReadLine();
-                switch (stdin)
+                try {
+                    string stdin = Console.ReadLine();
+                    switch (stdin)
+                    {
+                        //CLIからの終了指示
+                        case "q":
+                            logging.log("[CLI] Program Termination Requested.");
+                            CLICONT = false;
+                            Restart = false;
+                            break;
+                        case "quit":
+                            logging.log("[CLI] Program Termination Requested.");
+                            CLICONT = false;
+                            Restart = false;
+                            break;
+                        case "exit":
+                            logging.log("[CLI] Program Termination Requested.");
+                            CLICONT = false;
+                            Restart = false;
+                            break;
+                        //ヘルプ表示
+                        case "h":
+                            CLIHelp();
+                            break;
+                        case "help":
+                            CLIHelp();
+                            break;
+                        //Botプログラム再起動
+                        case "restart":
+                            Restart = true;
+                            CLICONT = false;
+                            break;
+                        //メッセージ削除
+                        case "delete":
+                            Console.Write("RoomID:");
+                            string RoomID_del = Console.ReadLine();
+                            Console.Write("MessageID:");
+                            string MessageID_del = Console.ReadLine();
+                            IMessage del = await client.GetGuild(ulong.Parse(prop.settings["GuildID"])).GetTextChannel(ulong.Parse(RoomID_del)).GetMessageAsync(ulong.Parse(MessageID_Del));
+                            string content = del.Author + " : " + del.Content;
+                            await del.DeleteAsync();
+                            logging.log("Deleted the message :" + content);
+                            break;
+                    }
+                }catch(Exception e)
                 {
-                    //CLIからの終了指示
-                    case "q":
-                        logging.log("[CLI] Program Termination Requested.");
-                        CLICONT = false;
-                        Restart = false;
-                        break;
-                    case "quit":
-                        logging.log("[CLI] Program Termination Requested.");
-                        CLICONT = false;
-                        Restart = false;
-                        break;
-                    case "exit":
-                        logging.log("[CLI] Program Termination Requested.");
-                        CLICONT = false;
-                        Restart = false;
-                        break;
-
+                    Console.WriteLine(e);
                 }
             }
         }
