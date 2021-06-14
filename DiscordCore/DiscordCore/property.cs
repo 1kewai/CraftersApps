@@ -10,6 +10,9 @@ namespace Resource
         public Dictionary<string,string> settings;
         public void load()
         {
+            settings = new Dictionary<string, string>();
+            fakeLoad();
+            return;
             //読み込み
             string readfile;
             using(StreamReader sr=new StreamReader("DiscordSetup.inf"))
@@ -34,13 +37,14 @@ namespace Resource
         //テスト用
         public void fakeLoad()
         {
-
+            settings["DiscordToken"] = "NzM5NzAxOTE4Mjc1NzMxNDY3.XyeTGA.A15iGP_a2q8J6CyNNR4p-CxUr9I";
+            settings["GuildID"] = "712253807685533698";
         }
 
         //Fields
         /*
          * DiscordToken : Discordへの認証トークン
-         * 
+         * GuildID : Discordサーバーid
          * 
          * 
          * 

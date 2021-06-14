@@ -35,7 +35,7 @@ namespace Log
 
         public void MessageReceived(SocketMessage inputMessage)
         {
-            log("[Message] " + inputMessage.Author.Username + " sent a message\n" + inputMessage.Content + "\nat " + inputMessage.Channel.Name);
+            log("[Message] " + inputMessage.Author.Username + " sent a message " + inputMessage.Content + " at " + inputMessage.Channel.Name);
             return;
         }
 
@@ -55,7 +55,7 @@ namespace Log
 
         public void MessageUpdated(SocketMessage inputMessage)
         {
-            log("[Message] " + inputMessage.Author.Username + " updated a message\n" + inputMessage.Content + "\nat " + inputMessage.Channel.Name);
+            log("[Message] " + inputMessage.Author.Username + " updated a message " + inputMessage.Content + " at " + inputMessage.Channel.Name);
         }
 
         public string LogReader()

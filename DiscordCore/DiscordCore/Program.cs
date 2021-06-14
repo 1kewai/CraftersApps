@@ -9,6 +9,7 @@ using Log = Log;
 using UI = UI;
 using Resource = Resource;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace DiscordCore
 {
@@ -82,18 +83,26 @@ namespace DiscordCore
 
             //イベントのセットアップ
             logging.log("[Bot] Setting up events...");
-
+            client.MessageReceived += MessageReceived;
+            client.ReactionAdded += ReactionAdded;
             logging.log("[Bot] Event setup complete.");
-
-            //GUIのリストへの追加
 
             //Discordへ接続
             logging.log("[Bot] Logging in to Discord...");
             await client.LoginAsync(TokenType.Bot, prop.settings["DiscordToken"]);
             await client.StartAsync();
 
+            //GUIのリストへの追加
+            Thread.Sleep(10000);
+            //MirrorGUI(Test)の追加
+            
+            UIList = new List<UI::DiscordChatUI>();
+            SocketTextChannel channel = client.GetGuild(ulong.Parse(prop.settings["GuildID"])).GetTextChannel(853932957445128202);
+            UIList.Add(new UI::TestUI(channel, logging, "ようこそ！"));
+
+
             //CLIUI
-            bool CLICONT = false;
+            bool CLICONT = true;
             while (CLICONT)
             {
                 try {
@@ -134,7 +143,7 @@ namespace DiscordCore
                             string RoomID_del = Console.ReadLine();
                             Console.Write("MessageID:");
                             string MessageID_del = Console.ReadLine();
-                            IMessage del = await client.GetGuild(ulong.Parse(prop.settings["GuildID"])).GetTextChannel(ulong.Parse(RoomID_del)).GetMessageAsync(ulong.Parse(MessageID_Del));
+                            IMessage del = await client.GetGuild(ulong.Parse(prop.settings["GuildID"])).GetTextChannel(ulong.Parse(RoomID_del)).GetMessageAsync(ulong.Parse(MessageID_del));
                             string content = del.Author + " : " + del.Content;
                             await del.DeleteAsync();
                             logging.log("Deleted the message :" + content);
@@ -194,7 +203,9 @@ namespace DiscordCore
         //メッセージ受信時
         public async Task MessageReceived(SocketMessage inputMessage)
         {
-            foreach(UI::DiscordChatUI i in UIList)
+
+            logging.MessageReceived(inputMessage);
+            foreach (UI::DiscordChatUI i in UIList)
             {
                 await i.MessageReceived(inputMessage);
             }
