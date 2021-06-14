@@ -171,12 +171,23 @@ namespace DiscordCore
                     Console.WriteLine(e);
                 }
             }
+            //終了処理
+            logging.finalize();
         }
 
         public void CLIHelp()
         {
             //CLI使用上のヘルプを表示
-
+            Console.WriteLine("h,help : show this help page.");
+            Console.WriteLine("q,quit,exit : Shut down this bot program.");
+            Console.WriteLine("delete : delete the message designated by messageID.");
+            Console.WriteLine("send : send a message to the designated Text channel.");
+            Console.WriteLine("restart : restart this bot Program.");
+            Console.WriteLine("ConnectionState : Get the status of connection against Discord.");
+            Console.WriteLine("latency : Get the latency between the server and Discord.");
+            Console.WriteLine("ReadSessionLog : Display the log for this session.");
+            Console.WriteLine("Memory : Display the memory usage of this Bot.");
+            Console.WriteLine("GC : Force Collector to do GC immediately.");
         }
     }
 }
