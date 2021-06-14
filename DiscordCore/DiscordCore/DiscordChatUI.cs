@@ -23,5 +23,15 @@ namespace UI
         {
             await channel.SendMessageAsync(Display);
         }
+
+        public async Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage)
+        {
+            //個々の継承先で実装
+        }
+
+        public async Task ReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction)
+        {
+
+        }
     }
 }

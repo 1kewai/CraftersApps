@@ -189,5 +189,23 @@ namespace DiscordCore
             Console.WriteLine("Memory : Display the memory usage of this Bot.");
             Console.WriteLine("GC : Force Collector to do GC immediately.");
         }
+
+        //イベントハンドラ
+        //メッセージ受信時
+        public async Task MessageReceived(SocketMessage inputMessage)
+        {
+            foreach(UI::DiscordChatUI i in UIList)
+            {
+                await i.MessageReceived(inputMessage);
+            }
+        }
+        //リアクション追加時
+        public async Task ReactionAdded(Cacheable<IUserMessage, ulong> cache, ISocketMessageChannel inputchannel, SocketReaction inputReaction)
+        {
+            foreach(UI::DiscordChatUI i in UIList)
+            {
+                await i.ReactionAdded(cache, inputchannel, inputReaction);
+            }
+        }
     }
 }
