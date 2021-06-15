@@ -14,21 +14,19 @@ namespace UI
         {
 
         }
-        public override async Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage)
+        public override void UIMessageReceived(Discord::WebSocket.SocketMessage inputMessage)
         {
             if (!inputMessage.Author.IsBot)
             {
                 Display = inputMessage.Content;
                 logging.log("Mirror working.");
-                await refresh();
             }
         }
 
-        public override async Task ReactionAdded(Cacheable<IUserMessage, ulong> cache, ISocketMessageChannel inputchannel, SocketReaction inputReaction)
+        public override void UIReactionAdded(Cacheable<IUserMessage, ulong> cache, ISocketMessageChannel inputchannel, SocketReaction inputReaction)
         {
             Display = "\""+inputReaction.Emote.Name+ "\"";
             logging.log(inputReaction.Emote.Name);
-            await refresh();
         }
     }
 }

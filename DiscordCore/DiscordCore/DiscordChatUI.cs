@@ -35,8 +35,20 @@ namespace UI
             CurrentMessage = (Discord::Rest.RestUserMessage)await channel.SendMessageAsync(Display);
         }
 
+        public async Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage)
+        {
+            UIMessageReceived(inputMessage);
+            await refresh();
+        }
+
+        public async Task ReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction)
+        {
+            UIReactionAdded(cache, inputchannel, inputReaction);
+            await refresh();
+        }
+
         //Abstract
-        public abstract Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage);
-        public abstract Task ReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction);
+        public abstract void UIMessageReceived(Discord::WebSocket.SocketMessage inputMessage);
+        public abstract void UIReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction);
     }
 }
