@@ -1,7 +1,5 @@
 ﻿using Discord;
 using Discord.WebSocket;
-using System;
-using System.Threading.Tasks;
 using Discord = Discord;
 using Log = Log;
 using Resource = Resource;
