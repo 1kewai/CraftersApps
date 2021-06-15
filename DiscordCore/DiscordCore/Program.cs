@@ -92,10 +92,11 @@ namespace DiscordCore
             await client.LoginAsync(TokenType.Bot, prop.settings["DiscordToken"]);
             await client.StartAsync();
 
-            //GUIのリストへの追加
+            //UIのリストへの追加
             Thread.Sleep(10000);
-            //MirrorGUI(Test)の追加
-            
+
+
+            //MirrorUI(Test)の追加
             UIList = new List<UI::DiscordChatUI>();
             SocketTextChannel channel = client.GetGuild(ulong.Parse(prop.settings["GuildID"])).GetTextChannel(853932957445128202);
             UIList.Add(new UI::TestUI(channel, logging, "ようこそ！"));
@@ -194,7 +195,6 @@ namespace DiscordCore
             Console.WriteLine("restart : restart this bot Program.");
             Console.WriteLine("ConnectionState : Get the status of connection against Discord.");
             Console.WriteLine("latency : Get the latency between the server and Discord.");
-            Console.WriteLine("ReadSessionLog : Display the log for this session.");
             Console.WriteLine("Memory : Display the memory usage of this Bot.");
             Console.WriteLine("GC : Force Collector to do GC immediately.");
         }

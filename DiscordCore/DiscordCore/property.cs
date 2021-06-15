@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Discord = Discord;
 
 namespace Resource
 {
@@ -49,5 +50,11 @@ namespace Resource
          * 
          * 
          */
+    }
+
+    class ResourceSet
+    {
+        public Dictionary<string, string> settings;
+        public Discord::WebSocket.BaseSocketClient client;
     }
 }
