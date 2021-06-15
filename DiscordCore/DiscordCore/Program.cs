@@ -95,11 +95,15 @@ namespace DiscordCore
             //UIのリストへの追加
             Thread.Sleep(10000);
 
+            //リソースセット作成
+            Resource::ResourceSet RS = new Resource::ResourceSet();
+            RS.client = client;
+            RS.settings = prop.settings;
 
             //MirrorUI(Test)の追加
             UIList = new List<UI::DiscordChatUI>();
             SocketTextChannel channel = client.GetGuild(ulong.Parse(prop.settings["GuildID"])).GetTextChannel(853932957445128202);
-            UIList.Add(new UI::TestUI(channel, logging, "ようこそ！"));
+            UIList.Add(new UI::TestUI(channel, logging, "ようこそ！", RS));
 
 
             //CLIUI
