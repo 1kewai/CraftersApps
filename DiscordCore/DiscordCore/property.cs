@@ -11,35 +11,49 @@ namespace Resource
         public Dictionary<string,string> settings;
         public void load()
         {
+            //読み込みを行うための領域確保
             settings = new Dictionary<string, string>();
-            fakeLoad();
-            return;
-            //読み込み
-            string readfile;
-            using(StreamReader sr=new StreamReader("DiscordSetup.inf"))
+            //読み込みを行う
+            string data;
+            try
             {
-                readfile = sr.ReadToEnd();
-            }
-            //解釈
-            string[] tmp0 = readfile.Split("\n");
-            for(int i = 0; i < tmp0.Length; i++)
-            {
-                try
+                using (StreamReader r = new StreamReader("bot.conf"))
                 {
-                    string[] tmp1 = tmp0[i].Split("=");
-                    settings[tmp1[0]] = tmp1[1];
-                }catch(Exception e)
-                {
-                    //pass
+                    data = r.ReadToEnd();
                 }
+            }catch(Exception e)
+            {
+                Console.WriteLine("[Error] No config file found. Quitting...\n"+e);
+                return;
             }
+            //読み込んだデータの解釈
+            try
+            {
+                string[] temp = data.Split(char.Parse("\n"));
+                foreach(string i in temp)
+                {
+                    if (i.Contains("="))
+                    {
+                        string[] temp0 = i.Split(char.Parse("="));
+                        settings[temp0[0]] = temp0[1];
+                    }
+                }
+            }catch(Exception e)
+            {
+                Console.WriteLine("[Error] Failed to load config file. Quitting...\n"+e);
+                return;
+            }
+            settings["SuccessLoad"] = "[Message] Successfully loaded bot.conf";
+            return;
         }
 
         //テスト用
         public void fakeLoad()
         {
-            settings["DiscordToken"] = "NzM5NzAxOTE4Mjc1NzMxNDY3.XyeTGA.A15iGP_a2q8J6CyNNR4p-CxUr9I";
-            settings["GuildID"] = "712253807685533698";
+            settings["DiscordToken"] = "ODU4MzE3NjYzMjA0OTMzNjcy.YNcYnQ.zUSgPWKJCGD0KujgOsBIxQ9XunE";
+            settings["GuildID"] = "857883603262505000";
+            settings["MC"] = "861504079011381279";
+            settings["init"] = "Start : 起動 Stop : 停止";
         }
 
         //Fields

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VOEPH0z9JZzUNwtTCJSeFzOfFmN0UoNWuzMqSNPVVNNqmwyMKB+Ruk2CkWujTOcUg4Yfv7dBOlHxRQJdkYak7A==",
+  "dgSpecHash": "5XS67yD78plieyjjf2CF973DI3Hjqase0SjAA0Hil8vGHWQIb2dutYzsVbkoT9pH0UiEoCE4t2EZ00kM/w49Yg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
+  "projectFilePath": "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yutoi\\.nuget\\packages\\discord.net\\2.4.0\\discord.net.2.4.0.nupkg.sha512",
     "C:\\Users\\yutoi\\.nuget\\packages\\discord.net.commands\\2.4.0\\discord.net.commands.2.4.0.nupkg.sha512",

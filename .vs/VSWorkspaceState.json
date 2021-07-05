@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DiscordCore",
+    "\\DiscordCore\\DiscordCore"
   ],
+  "SelectedNode": "\\DiscordCore\\DiscordCore.sln",
   "PreviewInSolutionExplorer": false
 }

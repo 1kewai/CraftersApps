@@ -38,6 +38,7 @@ namespace UI
         public async Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage)
         {
             UIMessageReceived(inputMessage);
+            if (inputMessage.Author.IsBot) { return; }
             await refresh();
         }
 
