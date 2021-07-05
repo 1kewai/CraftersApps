@@ -9,9 +9,9 @@ using Log = Log;
 
 namespace UI
 {
-    class MCMachineUI : DiscordChatUI
+    class ServerStatus : DiscordChatUI
     {
-        public MCMachineUI(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
+        public ServerStatus(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
         {
 
         }

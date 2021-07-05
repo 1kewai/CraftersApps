@@ -32,6 +32,7 @@ namespace UI
             {
                 await CurrentMessage.DeleteAsync();
             }
+            if(Display == "") { return; }
             CurrentMessage = (Discord::Rest.RestUserMessage)await channel.SendMessageAsync(Display);
         }
 

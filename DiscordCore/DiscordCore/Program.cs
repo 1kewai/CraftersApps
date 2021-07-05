@@ -105,7 +105,7 @@ namespace DiscordCore
 
             //MCMachineUIの追加
             SocketTextChannel channel = client.GetGuild(ulong.Parse(RS.settings["GuildID"])).GetTextChannel(ulong.Parse(RS.settings["MC"]));
-            UI::DiscordChatUI MCMachine = new UI::MCMachineUI(channel, logging, RS.settings["init"], RS);
+            UI::DiscordChatUI MCMachine = new UI::MCMachineUI(channel, logging, "", RS);
             UIList.Add(MCMachine);
 
             //CLIUI
