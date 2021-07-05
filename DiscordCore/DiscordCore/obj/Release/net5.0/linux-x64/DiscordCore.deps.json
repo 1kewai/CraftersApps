@@ -67,6 +67,10 @@
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.621.22011"
           },
+          "System.Diagnostics.Process.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.621.22011"
+          },
           "System.Diagnostics.StackTrace.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.621.22011"

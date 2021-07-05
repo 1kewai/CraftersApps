@@ -104,9 +104,14 @@ namespace DiscordCore
             UIList = new List<UI::DiscordChatUI>();
 
             //MCMachineUIの追加
-            SocketTextChannel channel = client.GetGuild(ulong.Parse(RS.settings["GuildID"])).GetTextChannel(ulong.Parse(RS.settings["MC"]));
-            UI::DiscordChatUI MCMachine = new UI::MCMachineUI(channel, logging, "", RS);
+            SocketTextChannel channel0 = client.GetGuild(ulong.Parse(RS.settings["GuildID"])).GetTextChannel(ulong.Parse(RS.settings["MC"]));
+            UI::DiscordChatUI MCMachine = new UI::MCMachineUI(channel0, logging, "", RS);
             UIList.Add(MCMachine);
+
+            //ServerStatusの追加
+            SocketTextChannel channel1 = client.GetGuild(ulong.Parse(RS.settings["GuildID"])).GetTextChannel(ulong.Parse(RS.settings["ServerStatus"]));
+            UI::DiscordChatUI ServerStatus = new UI::ServerStatus(channel1, logging, "", RS);
+            UIList.Add(ServerStatus);
 
             //CLIUI
             bool CLICONT = true;
