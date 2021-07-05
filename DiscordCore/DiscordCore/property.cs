@@ -47,21 +47,12 @@ namespace Resource
             return;
         }
 
-        //テスト用
-        public void fakeLoad()
-        {
-            settings["DiscordToken"] = "ODU4MzE3NjYzMjA0OTMzNjcy.YNcYnQ.zUSgPWKJCGD0KujgOsBIxQ9XunE";
-            settings["GuildID"] = "857883603262505000";
-            settings["MC"] = "861504079011381279";
-            settings["init"] = "Start : 起動 Stop : 停止";
-        }
-
         //Fields
         /*
          * DiscordToken : Discordへの認証トークン
          * GuildID : Discordサーバーid
-         * 
-         * 
+         * MC : Minecraft サーバー起動用チャットルームのid
+         * ServerStatusID : サーバーステータス表示用チャットルームのid
          * 
          */
     }
