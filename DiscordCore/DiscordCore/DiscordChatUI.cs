@@ -36,6 +36,12 @@ namespace UI
             CurrentMessage = (Discord::Rest.RestUserMessage)await channel.SendMessageAsync(Display);
         }
 
+        public async Task WriteToChatLog(string message)
+        {
+            await channel.SendMessageAsync(message);
+            await refresh();
+        }
+
         public async Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage)
         {
             UIMessageReceived(inputMessage);
