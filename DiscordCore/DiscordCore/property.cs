@@ -53,7 +53,8 @@ namespace Resource
          * GuildID : Discordサーバーid
          * MC : Minecraft サーバー起動用チャットルームのid
          * ServerStatusID : サーバーステータス表示用チャットルームのid
-         * 
+         * ResourceGroup : インスタンスのリソースグループ
+         * MCServername
          */
     }
 

@@ -13,7 +13,11 @@ namespace UI
     {
         public MCMachineUI(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
         {
-
+            Display = "社不クラフトへようこそ！\n\n";
+            Display += "操作方法\n";
+            Display = "Start : マイクラサーバー起動　Stop : マイクラサーバー停止\n\n";
+            Display += "使用後は必ず停止するようにしてください";
+            refresh().GetAwaiter().GetResult();
         }
 
         public override void UIMessageReceived(Discord::WebSocket.SocketMessage inputMessage)

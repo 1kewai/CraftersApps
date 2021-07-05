@@ -111,6 +111,10 @@
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.621.22011"
           },
+          "System.Memory.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.621.22011"
+          },
           "System.Net.Http.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.621.22011"
@@ -204,6 +208,14 @@
             "fileVersion": "5.0.621.22011"
           },
           "System.Security.Cryptography.X509Certificates.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.621.22011"
+          },
+          "System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "5.0.0.1",
+            "fileVersion": "5.0.621.22011"
+          },
+          "System.Text.Json.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.621.22011"
           },
