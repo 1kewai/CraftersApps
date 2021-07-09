@@ -186,6 +186,9 @@ namespace DiscordCore
                             GC.Collect();
                             Console.WriteLine("Collected.");
                             break;
+                        default:
+                            CLIHelp();
+                            break;
                     }
                 }catch(Exception e)
                 {

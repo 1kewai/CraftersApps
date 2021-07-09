@@ -54,7 +54,8 @@ namespace Resource
          * MC : Minecraft サーバー起動用チャットルームのid
          * ServerStatusID : サーバーステータス表示用チャットルームのid
          * ResourceGroup : インスタンスのリソースグループ
-         * MCServername
+         * MCServername : MineCraftサーバーの名前
+         * MineCraft-ip : ipアドレスの名前
          */
     }
 
