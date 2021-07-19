@@ -9,50 +9,71 @@ namespace UI
 {
     class MCMachineUI : DiscordChatUI
     {
-        ProcessStartInfo boot;
-        ProcessStartInfo shutdown;
-        ProcessStartInfo GetIP;
+        //プロセスを開始するための情報
+        ProcessStartInfo boot;//MineCraftサーバーの起動プロセス
+        ProcessStartInfo shutdown;//MineCraftサーバーの終了プロセス
+        ProcessStartInfo GetIP;//MineCraftサーバーのIP取得に用いるプロセス
+
+        //コンストラクタ
         public MCMachineUI(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
         {
             logging.log("[MCMachineUI] UI init");
+
+            //ウェルカムメッセージ準備
             Display = "社不クラフトへようこそ！\n\n";
             Display += "操作方法\n";
             Display = "Start : マイクラサーバー起動　Stop : マイクラサーバー停止\n\n";
             Display += "使用後は必ず停止するようにしてください";
+
+            //プロセス開始情報の準備
             logging.log("[MCMachineUI] preparing Process Info...");
             boot = new ProcessStartInfo("az", "vm start --resource-group " + resourceSet.settings["ResourceGroup"] + " --name " + resourceSet.settings["MCServerName"]);
             shutdown = new ProcessStartInfo("az", "vm deallocate --resource-group " + resourceSet.settings["ResourceGroup"] + " --name " + resourceSet.settings["MCServerName"]);
             GetIP = new ProcessStartInfo("az", "network public-ip list");
             GetIP.RedirectStandardOutput = true;
+
+            //ウェルカムメッセージ送信
             refresh().GetAwaiter().GetResult();
             logging.log("[MCMachineUI] init finished.");
         }
 
+        //メッセージ受信時の動作
         public override void UIMessageReceived(Discord::WebSocket.SocketMessage inputMessage)
         {
-            if (inputMessage.Content == "Start")
+            if (inputMessage.Content == "Start")//MineCraftサーバー起動
             {
                 try
                 {
                     logging.log("[MCMachineUI] Starting VM...");
+
+                    //サーバー起動中のことを表示
                     Display = "サーバーを起動しています...";
                     refresh().GetAwaiter().GetResult();
+
+                    //起動プロセス呼び出し
                     Process process = Process.Start(boot);
                     process.WaitForExit();
+
+                    //サーバーIP取得
                     logging.log("[MCMachineUI] VM Started. Getting Server IP...");
                     process = Process.Start(GetIP);
                     process.WaitForExit();
                     string output = process.StandardOutput.ReadToEnd();
-                    IP[] ips = JsonSerializer.Deserialize<IP[]>(output);
+                    IP[] ips = JsonSerializer.Deserialize<IP[]>(output);//デシリアライズ先オブジェクト作成
                     string addr="";
+                    //デシリアライズ
                     foreach(IP i in ips)
                     {
                         if (i.name == resourceSet.settings["MineCraft-ip"]) { addr = i.ipAddress; }
                     }
+
+                    //メッセージ送信
                     Display = "起動しました！アドレスは" + addr + ":12345です、お楽しみください！";
                     return;
-                }catch(Exception e)
+                }
+                catch(Exception e)
                 {
+                    //エラー発生時はログを出力しエラー発生の旨Discordに送信する
                     logging.log("[MCMachineUI] Error occured while processing boot. \n" + e);
                     Display = "エラーが発生しました。\n" + e;
                     return;
@@ -60,6 +81,7 @@ namespace UI
             }
             if (inputMessage.Content == "Stop")
             {
+                //サーバー停止時処理
                 logging.log("[MCMachineUI] Shutting down VM...");
                 Display = "サーバーをシャットダウンしています...";
                 refresh().GetAwaiter().GetResult();
@@ -74,6 +96,7 @@ namespace UI
 
         }
 
+        //Azureから取得したデータをデシリアライズするためのオブジェクト
         public class IP
         {
             public object ddosSettings { get; set; }

@@ -177,16 +177,20 @@ namespace DiscordCore
                             break;
                         case "latency":
                             Console.WriteLine(client.Latency);
+                            logging.log("[CLI] Latency : " + client.Latency);
                             break;
                         //Memory関係/不停止メンテナンス用
                         case "Memory":
+                            logging.log("[CLI] Memory usage : " + GC.GetTotalMemory(false));
                             Console.WriteLine("Memory usage : " + GC.GetTotalMemory(false));
                             break;
                         case "GC":
+                            logging.log("[CLI] GC requested. Collecting...");
                             GC.Collect();
                             Console.WriteLine("Collected.");
                             break;
                         default:
+                            Console.WriteLine("No command matched. Check your spell.");
                             CLIHelp();
                             break;
                     }

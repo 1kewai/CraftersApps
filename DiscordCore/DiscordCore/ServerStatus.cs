@@ -11,8 +11,10 @@ namespace UI
 {
     class ServerStatus : DiscordChatUI
     {
-        ProcessStartInfo listVM;
-        ProcessStartInfo listIP;
+        ProcessStartInfo listVM;//VM一覧を表示するプロセスの開始情報
+        ProcessStartInfo listIP;//IP一覧を表示するプロセスの開始情報
+
+        //コンストラクタ
         public ServerStatus(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
         {
             logging.log("[ServerStatus] UI init");
@@ -29,14 +31,14 @@ namespace UI
             logging.log("[ServerStatus] init finished.");
         }
 
-        public override void UIMessageReceived(Discord::WebSocket.SocketMessage inputMessage)
+        public override void UIMessageReceived(Discord::WebSocket.SocketMessage inputMessage)//メッセージ受信時処理
         {
             //inputMessageの内容に応じて画面遷移や書き込み等を行う
             if (inputMessage.Content == "VMList")
             {
                 reportVM();
             }
-            if(inputMessage.Content == "IPList")
+            if (inputMessage.Content == "IPList")
             {
                 reportIP();
             }
@@ -53,6 +55,7 @@ namespace UI
 
         public void welcomeScreen()
         {
+            //ウェルカムスクリーン
             Display = "サーバーステータス確認UI\n\n";
             Display += "VMList : Azure VMの一覧と情報を表示\n";
             Display += "IPList : Azure public-ipの一覧を表示\n";
@@ -62,14 +65,21 @@ namespace UI
 
         public void reportVM()
         {
+            //VMリスト表示
             try
             {
                 logging.log("[ServerStatus] Connecting to azure...");
+
+                //azプロセス開始
                 Process process = Process.Start(listVM);
                 process.WaitForExit();
+
+                //プロセス結果取得
                 string output = process.StandardOutput.ReadToEnd();
                 string result = "Azure VMステータス\n\n";
                 logging.log("[ServerStatus] Information fetch finished. Serializing...");
+
+                //デシリアライズするオブジェクトの作成とJsonデシリアライズ
                 VM[] vms = JsonSerializer.Deserialize<VM[]>(output);
                 foreach (VM i in vms)
                 {
@@ -80,36 +90,51 @@ namespace UI
                     data += "\n\n";
                     result += data;
                 }
+
+                //結果を送信
                 WriteToChatLog(result).GetAwaiter().GetResult();
+
             }
             catch (Exception e)
             {
+                //エラー発生時はログを出力した上でエラー発生の旨Discordに送信する
                 logging.log("[ServerStatus] Error occured while processing remortVM(). \n" + e);
                 string result = "Azure VMステータス確認中にエラーが発生しました。しばらく待ってもう一度お試しください。\n" + e;
                 WriteToChatLog(result).GetAwaiter().GetResult();
             }
         }
 
-        public void reportIP()
+        public void reportIP()//IPアドレスの情報を取得して表示
         {
             try
             {
                 logging.log("[ServerStatus] Connecting to azure...");
+
+                //プロセス開始
                 Process process = Process.Start(listIP);
                 process.WaitForExit();
+
+                //出力取得
                 string output = process.StandardOutput.ReadToEnd();
                 string result = "Azure public-ipリスト\n\n";
                 logging.log("[ServerStatus] Information fetch finished. Serializing...");
+
+                //デシリアライズ先オブジェクトの作成とJsonデシリアライズ
                 NW[] nws = JsonSerializer.Deserialize<NW[]>(output);
-                foreach(NW i in nws)
+                foreach (NW i in nws)
                 {
                     result += "名前 : " + i.name;
                     result += "\nアドレス : " + i.ipAddress;
                     result += "\n\n";
                 }
+
+                //結果を送信
                 WriteToChatLog(result).GetAwaiter().GetResult();
-            }catch(Exception e)
+
+            }
+            catch (Exception e)
             {
+                //エラー発生時はログを出力した上でエラー発生の旨Discordに送信する
                 logging.log("[ServerStatus] Error occured while processing remortNW(). \n" + e);
                 string result = "Azure IPステータス確認中にエラーが発生しました。しばらく待ってもう一度お試しください。\n" + e;
                 WriteToChatLog(result).GetAwaiter().GetResult();
@@ -118,31 +143,41 @@ namespace UI
 
         public void reportAll()
         {
+            //全出力取得を行いログファイルとして保存、ファイルとして送信
             try
             {
-
                 logging.log("[ServerStatus] Connecting to azure...");
+
+                //プロセス開始
                 Process process0 = Process.Start(listVM);
                 Process process1 = Process.Start(listIP);
                 process0.WaitForExit();
                 process1.WaitForExit();
                 logging.log("[ServerStatus] Saving log data...");
+
+                //出力のファイル保存
                 Encoding enc = Encoding.GetEncoding("UTF-8");
                 using (StreamWriter w = new StreamWriter("AllReport.log", true, enc))
                 {
                     w.WriteLine(process0.StandardOutput.ReadToEnd());
                     w.WriteLine(process1.StandardOutput.ReadToEnd());
                 }
+
+                //送信
                 logging.log("Sending report file...");
                 channel.SendFileAsync("AllReport.log");
-            }catch(Exception e)
-            {
 
+            }
+            catch (Exception e)
+            {
+                //エラー発生時はログを出力した上でエラー発生の旨Discordに送信する
                 logging.log("[ServerStatus] Error occured while processing remortAll(). \n" + e);
                 string result = "エラーが発生しました。\n" + e;
                 WriteToChatLog(result).GetAwaiter().GetResult();
             }
         }
+
+        //azからのJson出力をデシリアライズするためのオブジェクト
         public class VM
         {
             public object additionalCapabilities { get; set; }
@@ -329,6 +364,4 @@ namespace UI
             }
         }
     }
-
-
 }
