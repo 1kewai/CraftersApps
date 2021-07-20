@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CIHelper",
-    "\\CIHelper\\CIHelper",
     "\\DiscordCore",
     "\\DiscordCore\\DiscordCore"
   ],
-  "SelectedNode": "\\CIHelper\\CIHelper\\Program.cs",
+  "SelectedNode": "\\DiscordCore\\DiscordCore\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
