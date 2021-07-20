@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj": {}
+    "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj": {
+    "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
+        "projectUniqueName": "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
         "projectName": "DiscordCore",
-        "projectPath": "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
+        "projectPath": "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
         "packagesPath": "C:\\Users\\yutoi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\obj\\",
+        "outputPath": "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
