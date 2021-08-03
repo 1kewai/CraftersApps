@@ -52,6 +52,7 @@ namespace UI
 
         public async Task ReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction)
         {
+            if(inputchannel.Id != channel.Id) { return; }
             UIReactionAdded(cache, inputchannel, inputReaction);
             await refresh();
         }
