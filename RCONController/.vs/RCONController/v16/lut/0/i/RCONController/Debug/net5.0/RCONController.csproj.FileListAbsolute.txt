@@ -1,0 +1,14 @@
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\b\RCONController\Debug\net5.0\RCONController.exe
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\b\RCONController\Debug\net5.0\RCONController.deps.json
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\b\RCONController\Debug\net5.0\RCONController.runtimeconfig.json
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\b\RCONController\Debug\net5.0\RCONController.runtimeconfig.dev.json
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\b\RCONController\Debug\net5.0\RCONController.dll
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\b\RCONController\Debug\net5.0\ref\RCONController.dll
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\i\RCONController\Debug\net5.0\RCONController.csproj.AssemblyReference.cache
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\i\RCONController\Debug\net5.0\RCONController.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\i\RCONController\Debug\net5.0\RCONController.AssemblyInfoInputs.cache
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\i\RCONController\Debug\net5.0\RCONController.AssemblyInfo.cs
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\i\RCONController\Debug\net5.0\RCONController.csproj.CopyComplete
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\i\RCONController\Debug\net5.0\RCONController.dll
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\i\RCONController\Debug\net5.0\ref\RCONController.dll
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\.vs\RCONController\v16\lut\0\i\RCONController\Debug\net5.0\RCONController.genruntimeconfig.cache

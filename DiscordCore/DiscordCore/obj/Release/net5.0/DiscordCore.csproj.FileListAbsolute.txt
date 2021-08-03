@@ -22,6 +22,6 @@ C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\bin\Release\net
 C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\bin\Release\net5.0\Newtonsoft.Json.dll
 C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\bin\Release\net5.0\System.Interactive.Async.dll
 C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\bin\Release\net5.0\System.Linq.Async.dll
-C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\obj\Release\net5.0\DiscordCore.csprojAssemblyReference.cache
 C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\obj\Release\net5.0\DiscordCore.csproj.CopyComplete
 C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\obj\Release\net5.0\DiscordCore.genruntimeconfig.cache
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\obj\Release\net5.0\DiscordCore.csproj.AssemblyReference.cache

@@ -11,165 +11,165 @@
         "dependencies": {
           "Discord.Net": "2.4.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.1",
-          "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64": "5.0.6"
+          "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64": "5.0.8"
         },
         "runtime": {
           "DiscordCore.dll": {}
         }
       },
-      "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64/5.0.6": {
+      "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64/5.0.8": {
         "runtime": {
           "Microsoft.Win32.Primitives.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Collections.Concurrent.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Collections.Immutable.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Collections.NonGeneric.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Collections.Specialized.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Collections.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.ComponentModel.Primitives.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.ComponentModel.TypeConverter.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.ComponentModel.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Console.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Data.Common.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Diagnostics.DiagnosticSource.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Diagnostics.Process.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Diagnostics.StackTrace.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Diagnostics.TraceSource.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Drawing.Primitives.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Formats.Asn1.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.IO.Compression.Brotli.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.IO.Compression.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.IO.FileSystem.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.IO.MemoryMappedFiles.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Linq.Expressions.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Linq.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Memory.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.Http.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.NameResolution.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.NetworkInformation.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.Primitives.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.Security.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.Sockets.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.WebHeaderCollection.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.WebSockets.Client.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Net.WebSockets.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.ObjectModel.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Private.Uri.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Private.Xml.Linq.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Private.Xml.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Reflection.Metadata.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Runtime.CompilerServices.Unsafe.dll": {
             "assemblyVersion": "5.0.0.0",
@@ -177,63 +177,63 @@
           },
           "System.Runtime.InteropServices.RuntimeInformation.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Runtime.Numerics.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Runtime.Serialization.Formatters.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Runtime.Serialization.Primitives.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Security.Cryptography.Algorithms.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Security.Cryptography.Encoding.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Security.Cryptography.OpenSsl.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Security.Cryptography.Primitives.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Security.Cryptography.X509Certificates.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Text.Encodings.Web.dll": {
             "assemblyVersion": "5.0.0.1",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Text.Json.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Text.RegularExpressions.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Threading.Channels.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Web.HttpUtility.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           },
           "System.Private.CoreLib.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.621.22011"
+            "fileVersion": "5.0.821.31504"
           }
         }
       },
@@ -552,7 +552,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64/5.0.6": {
+    "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64/5.0.8": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""

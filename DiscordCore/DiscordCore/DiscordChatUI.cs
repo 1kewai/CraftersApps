@@ -28,10 +28,6 @@ namespace UI
 
         public async Task refresh()
         {
-            if (CurrentMessage != null)
-            {
-                await CurrentMessage.DeleteAsync();
-            }
             if(Display == "") { return; }
             CurrentMessage = (Discord::Rest.RestUserMessage)await channel.SendMessageAsync(Display);
         }

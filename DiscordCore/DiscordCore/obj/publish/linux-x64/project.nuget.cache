@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JIhixYGveiOAIGtxDZ5oq8I0nbzby8t8V9sKOObhxQ+P0niqN/Rw4VuQMoL71uQsCjUyhaxXNn3qLSTqqSDnxg==",
+  "dgSpecHash": "+LSSPmV6Us2BisF0OGyA321ldb0fQht2oS4ruHNvtYa2CkftpZy9jahtMclnfwP3vpVyehJnrcBmvM0Q5z/1Yg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
+  "projectFilePath": "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yutoi\\.nuget\\packages\\discord.net\\2.4.0\\discord.net.2.4.0.nupkg.sha512",
     "C:\\Users\\yutoi\\.nuget\\packages\\discord.net.commands\\2.4.0\\discord.net.commands.2.4.0.nupkg.sha512",
@@ -56,9 +56,9 @@
     "C:\\Users\\yutoi\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\yutoi\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\yutoi\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\yutoi\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\5.0.6\\microsoft.netcore.app.runtime.linux-x64.5.0.6.nupkg.sha512",
-    "C:\\Users\\yutoi\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\5.0.6\\microsoft.aspnetcore.app.runtime.linux-x64.5.0.6.nupkg.sha512",
-    "C:\\Users\\yutoi\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\5.0.6\\microsoft.netcore.app.host.linux-x64.5.0.6.nupkg.sha512"
+    "C:\\Users\\yutoi\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\5.0.8\\microsoft.netcore.app.runtime.linux-x64.5.0.8.nupkg.sha512",
+    "C:\\Users\\yutoi\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\5.0.8\\microsoft.aspnetcore.app.runtime.linux-x64.5.0.8.nupkg.sha512",
+    "C:\\Users\\yutoi\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\5.0.8\\microsoft.netcore.app.host.linux-x64.5.0.8.nupkg.sha512"
   ],
   "logs": []
 }

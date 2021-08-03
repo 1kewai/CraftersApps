@@ -1,0 +1,2 @@
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\bin\Release\net5.0\publish\DiscordCore.pdb
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\DiscordCore\bin\Release\net5.0\publish\DiscordCore

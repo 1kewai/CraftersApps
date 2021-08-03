@@ -19,12 +19,6 @@ namespace UI
         {
             logging.log("[MCMachineUI] UI init");
 
-            //ウェルカムメッセージ準備
-            Display = "社不クラフトへようこそ！\n\n";
-            Display += "操作方法\n";
-            Display = "Start : マイクラサーバー起動　Stop : マイクラサーバー停止\n\n";
-            Display += "使用後は必ず停止するようにしてください";
-
             //プロセス開始情報の準備
             logging.log("[MCMachineUI] preparing Process Info...");
             boot = new ProcessStartInfo("az", "vm start --resource-group " + resourceSet.settings["ResourceGroup"] + " --name " + resourceSet.settings["MCServerName"]);
@@ -32,9 +26,7 @@ namespace UI
             GetIP = new ProcessStartInfo("az", "network public-ip list");
             GetIP.RedirectStandardOutput = true;
 
-            //ウェルカムメッセージ送信
-            refresh().GetAwaiter().GetResult();
-            logging.log("[MCMachineUI] init finished.");
+            Display = "";
         }
 
         //メッセージ受信時の動作

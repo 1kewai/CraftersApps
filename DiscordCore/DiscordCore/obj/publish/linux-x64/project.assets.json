@@ -2529,11 +2529,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
+      "projectUniqueName": "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
       "projectName": "DiscordCore",
-      "projectPath": "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
+      "projectPath": "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\DiscordCore.csproj",
       "packagesPath": "C:\\Users\\yutoi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yutoi\\Source\\Repos\\CraftersApps\\DiscordCore\\DiscordCore\\obj\\publish\\linux-x64\\",
+      "outputPath": "C:\\Users\\yutoi\\source\\repos\\CraftersApps\\DiscordCore\\DiscordCore\\obj\\publish\\linux-x64\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -2590,15 +2590,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
-            "version": "[5.0.6, 5.0.6]"
+            "version": "[5.0.8, 5.0.8]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[5.0.6, 5.0.6]"
+            "version": "[5.0.8, 5.0.8]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.linux-x64",
-            "version": "[5.0.6, 5.0.6]"
+            "version": "[5.0.8, 5.0.8]"
           }
         ],
         "frameworkReferences": {
@@ -2606,7 +2606,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

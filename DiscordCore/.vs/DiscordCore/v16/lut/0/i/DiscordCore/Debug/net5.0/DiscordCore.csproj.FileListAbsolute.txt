@@ -1,0 +1,14 @@
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\b\DiscordCore\Debug\net5.0\DiscordCore.exe
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\b\DiscordCore\Debug\net5.0\DiscordCore.deps.json
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\b\DiscordCore\Debug\net5.0\DiscordCore.runtimeconfig.json
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\b\DiscordCore\Debug\net5.0\DiscordCore.runtimeconfig.dev.json
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\b\DiscordCore\Debug\net5.0\DiscordCore.dll
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\b\DiscordCore\Debug\net5.0\ref\DiscordCore.dll
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\i\DiscordCore\Debug\net5.0\DiscordCore.csproj.AssemblyReference.cache
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\i\DiscordCore\Debug\net5.0\DiscordCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\i\DiscordCore\Debug\net5.0\DiscordCore.AssemblyInfoInputs.cache
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\i\DiscordCore\Debug\net5.0\DiscordCore.AssemblyInfo.cs
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\i\DiscordCore\Debug\net5.0\DiscordCore.csproj.CopyComplete
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\i\DiscordCore\Debug\net5.0\DiscordCore.dll
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\i\DiscordCore\Debug\net5.0\ref\DiscordCore.dll
+C:\Users\yutoi\source\repos\CraftersApps\DiscordCore\.vs\DiscordCore\v16\lut\0\i\DiscordCore\Debug\net5.0\DiscordCore.genruntimeconfig.cache

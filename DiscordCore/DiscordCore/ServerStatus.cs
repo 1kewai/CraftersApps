@@ -55,11 +55,7 @@ namespace UI
 
         public void welcomeScreen()
         {
-            //ウェルカムスクリーン
-            Display = "サーバーステータス確認UI\n\n";
-            Display += "VMList : Azure VMの一覧と情報を表示\n";
-            Display += "IPList : Azure public-ipの一覧を表示\n";
-            Display += "ReportAll : 全出力を送信";
+            Display = "";
             return;
         }
 
