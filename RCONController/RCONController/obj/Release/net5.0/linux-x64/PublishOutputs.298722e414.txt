@@ -1,0 +1,2 @@
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\RCONController\bin\Release\net5.0\publish\RCONController.pdb
+C:\Users\yutoi\source\repos\CraftersApps\RCONController\RCONController\bin\Release\net5.0\publish\RCONController

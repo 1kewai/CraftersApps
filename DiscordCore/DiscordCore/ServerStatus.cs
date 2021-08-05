@@ -13,6 +13,7 @@ namespace UI
     {
         ProcessStartInfo listVM;//VM一覧を表示するプロセスの開始情報
         ProcessStartInfo listIP;//IP一覧を表示するプロセスの開始情報
+        ProcessStartInfo dmesg;//リングバッファ出力を表示するプロセスの開始情報
 
         //コンストラクタ
         public ServerStatus(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
@@ -22,8 +23,10 @@ namespace UI
             logging.log("[ServerStatus] Preparing Process Info...");
             listVM = new ProcessStartInfo("az", "vm list");
             listIP = new ProcessStartInfo("az", "network public-ip list");
+            dmesg = new ProcessStartInfo("dmesg");
             listVM.RedirectStandardOutput = true;
             listIP.RedirectStandardOutput = true;
+            dmesg.RedirectStandardOutput = true;
 
             //初期画面を表示して終了する
             welcomeScreen();
@@ -45,6 +48,10 @@ namespace UI
             if (inputMessage.Content == "ReportAll")
             {
                 reportAll();
+            }
+            if (inputMessage.Content == "RingBuffer")
+            {
+                sendRingBuffer();
             }
         }
 
@@ -160,7 +167,7 @@ namespace UI
                 }
 
                 //送信
-                logging.log("Sending report file...");
+                logging.log("[ServerStatus] Sending report file...");
                 channel.SendFileAsync("AllReport.log");
 
             }
@@ -170,6 +177,34 @@ namespace UI
                 logging.log("[ServerStatus] Error occured while processing remortAll(). \n" + e);
                 string result = "エラーが発生しました。\n" + e;
                 WriteToChatLog(result).GetAwaiter().GetResult();
+            }
+        }
+
+        public void sendRingBuffer()
+        {
+            try
+            {
+                logging.log("[ServerStatus] Fetching ring buffer...");
+                //リングバッファの出力と送信
+                //プロセス開始
+                Process process0 = Process.Start(dmesg);
+                process0.WaitForExit();
+                logging.log("[ServerStatus] Saving data...");
+                //保存
+                Encoding enc = Encoding.GetEncoding("UTF-8");
+                using (StreamWriter w = new StreamWriter("RingBuffer.log", true, enc))
+                {
+                    w.WriteLine(process0.StandardOutput.ReadToEnd());
+                }
+
+                //送信
+                logging.log("[ServerStatus] Sending ringbuffer...");
+                WriteToChatLog("BotサーバーのRingBufferを取得しました!").GetAwaiter().GetResult();
+                channel.SendFileAsync("RingBuffer.log");
+            }catch(Exception e)
+            {
+                logging.log("[ServerStatus] Error occured while sending RingBuffer.");
+                WriteToChatLog("リングバッファの取得に失敗しました。もう一度お試しください。").GetAwaiter().GetResult();
             }
         }
 
