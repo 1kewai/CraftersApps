@@ -12,7 +12,6 @@ namespace UI
         public string Display;
         public Discord::ITextChannel channel;
         public Log::Logging logging;
-        public Discord::Rest.RestUserMessage CurrentMessage;
         public Resource::ResourceSet resourceSet;
 
 
@@ -29,14 +28,12 @@ namespace UI
         public async Task refresh()
         {
             if(Display == "") { return; }
-            if (CurrentMessage == null) { CurrentMessage = (global::Discord.Rest.RestUserMessage)await channel.SendMessageAsync(Display); }
-            if(Display != CurrentMessage.Content) { CurrentMessage = (global::Discord.Rest.RestUserMessage)await channel.SendMessageAsync(Display); }
+            await channel.SendMessageAsync(Display);
         }
 
         public async Task WriteToChatLog(string message)
         {
             await channel.SendMessageAsync(message);
-            await refresh();
         }
 
         public async Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage)
@@ -44,7 +41,6 @@ namespace UI
             if(inputMessage.Channel.Id != channel.Id) { return; }
             if (inputMessage.Author.IsBot) { return; }
             UIMessageReceived(inputMessage);
-            await refresh();
         }
 
         public async Task ReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction)

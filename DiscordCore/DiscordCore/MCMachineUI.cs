@@ -61,6 +61,7 @@ namespace UI
 
                     //メッセージ送信
                     Display = "@everyone 起動しました！アドレスは" + addr + ":12345です、お楽しみください！";
+                    refresh().GetAwaiter().GetResult();
                     return;
                 }
                 catch (Exception e)
@@ -68,6 +69,7 @@ namespace UI
                     //エラー発生時はログを出力しエラー発生の旨Discordに送信する
                     logging.log("[MCMachineUI] Error occured while processing boot. \n" + e);
                     Display = "エラーが発生しました。\n" + e;
+                    refresh().GetAwaiter().GetResult();
                     return;
                 }
             }
@@ -80,6 +82,7 @@ namespace UI
                 Process process = Process.Start(shutdown);
                 process.WaitForExit();
                 Display = "サーバーをシャットダウンしました！";
+                refresh().GetAwaiter().GetResult();
             }
             if (inputMessage.Content == "Maintenance")
             {
@@ -110,6 +113,7 @@ namespace UI
 
                     //メッセージ送信
                     Display = "メンテナンスのためサーバーを起動しました。アドレスは" + addr + "です。遊べない場合がありますのでご注意ください。";
+                    refresh().GetAwaiter().GetResult();
                     return;
                 }
                 catch (Exception e)
@@ -117,6 +121,7 @@ namespace UI
                     //エラー発生時はログを出力しエラー発生の旨Discordに送信する
                     logging.log("[MCMachineUI] Error occured while processing boot. \n" + e);
                     Display = "エラーが発生しました。\n" + e;
+                    refresh().GetAwaiter().GetResult();
                     return;
                 }
             }

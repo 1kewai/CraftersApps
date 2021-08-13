@@ -27,10 +27,6 @@ namespace UI
             listVM.RedirectStandardOutput = true;
             listIP.RedirectStandardOutput = true;
             dmesg.RedirectStandardOutput = true;
-
-            //初期画面を表示して終了する
-            welcomeScreen();
-            refresh().GetAwaiter().GetResult();
             logging.log("[ServerStatus] init finished.");
         }
 
@@ -58,12 +54,6 @@ namespace UI
         public override void UIReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction)
         {
 
-        }
-
-        public void welcomeScreen()
-        {
-            Display = "";
-            return;
         }
 
         public void reportVM()
