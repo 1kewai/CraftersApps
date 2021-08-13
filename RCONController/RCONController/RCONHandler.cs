@@ -1,13 +1,8 @@
 ﻿using CoreRCON;
 using Discord;
 using Discord.WebSocket;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Discord = Discord;
 using Log = Log;
 using Resource = Resource;
