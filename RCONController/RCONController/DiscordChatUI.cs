@@ -9,7 +9,6 @@ namespace UI
     abstract class DiscordChatUI
     {
         //Field
-        public string Display;
         public Discord::ITextChannel channel;
         public Log::Logging logging;
         public Resource::ResourceSet resourceSet;
@@ -18,18 +17,10 @@ namespace UI
         public DiscordChatUI(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources)
         {
             channel = inputChannel;
-            Display = initialmessage;
             this.logging = logging;
-            this.logging.MessageSend(Display);
             resourceSet = resources;
-            refresh().GetAwaiter().GetResult();
         }
 
-        public async Task refresh()
-        {
-            if (Display == "") { return; }
-            await channel.SendMessageAsync(Display);
-        }
 
         public async Task WriteToChatLog(string message)
         {
@@ -47,7 +38,6 @@ namespace UI
         {
             if (inputchannel.Id != channel.Id) { return; }
             UIReactionAdded(cache, inputchannel, inputReaction);
-            await refresh();
         }
 
         //Abstract
