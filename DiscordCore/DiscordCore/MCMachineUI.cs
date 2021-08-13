@@ -40,6 +40,10 @@ namespace UI
                     WriteToChatLog("寝ろ社不！この鯖は自動シャットダウンする！").GetAwaiter().GetResult();
                     MCShutdown();
                 }
+                if (time.Hour == 16 && time.Minute == 50)
+                {
+                    WriteToChatLog("あと１０分でサーバーがシャットダウンされます、注意してね").GetAwaiter().GetResult();
+                }
             };
 
             Display = "";
