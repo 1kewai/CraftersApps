@@ -4,11 +4,14 @@ using Resource = Resource;
 using Log = Log;
 using System.Diagnostics;
 using System.Text.Json;
+using System.Timers;
 
 namespace UI
 {
     class MCMachineUI : DiscordChatUI
     {
+        System.Timers.Timer ShutdownTimer;
+        bool booted;
         //プロセスを開始するための情報
         ProcessStartInfo boot;//MineCraftサーバーの起動プロセス
         ProcessStartInfo shutdown;//MineCraftサーバーの終了プロセス
@@ -26,6 +29,19 @@ namespace UI
             GetIP = new ProcessStartInfo("az", "network public-ip list");
             GetIP.RedirectStandardOutput = true;
 
+            //シャットダウンタイマーの設定
+            ShutdownTimer = new Timer(60 * 1000);
+            ShutdownTimer.AutoReset = true;
+            ShutdownTimer.Elapsed += (object source, ElapsedEventArgs e) =>
+            {
+                System.DateTime time = System.DateTime.UtcNow;
+                if(time.Hour==17 && time.Minute == 0 && booted)
+                {
+                    WriteToChatLog("寝ろ社不！この鯖は自動シャットダウンする！").GetAwaiter().GetResult();
+                    MCShutdown();
+                }
+            };
+
             Display = "";
         }
 
@@ -34,97 +50,116 @@ namespace UI
         {
             if (inputMessage.Content == "Start")//MineCraftサーバー起動
             {
-                try
-                {
-                    logging.log("[MCMachineUI] Starting VM...");
-
-                    //サーバー起動中のことを表示
-                    Display = "サーバーを起動しています...";
-                    refresh().GetAwaiter().GetResult();
-
-                    //起動プロセス呼び出し
-                    Process process = Process.Start(boot);
-                    process.WaitForExit();
-
-                    //サーバーIP取得
-                    logging.log("[MCMachineUI] VM Started. Getting Server IP...");
-                    process = Process.Start(GetIP);
-                    process.WaitForExit();
-                    string output = process.StandardOutput.ReadToEnd();
-                    IP[] ips = JsonSerializer.Deserialize<IP[]>(output);//デシリアライズ先オブジェクト作成
-                    string addr = "";
-                    //デシリアライズ
-                    foreach (IP i in ips)
-                    {
-                        if (i.name == resourceSet.settings["MineCraft-ip"]) { addr = i.ipAddress; }
-                    }
-
-                    //メッセージ送信
-                    Display = "@everyone 起動しました！アドレスは" + addr + ":12345です、お楽しみください！";
-                    refresh().GetAwaiter().GetResult();
-                    return;
-                }
-                catch (Exception e)
-                {
-                    //エラー発生時はログを出力しエラー発生の旨Discordに送信する
-                    logging.log("[MCMachineUI] Error occured while processing boot. \n" + e);
-                    Display = "エラーが発生しました。\n" + e;
-                    refresh().GetAwaiter().GetResult();
-                    return;
-                }
+                MCBoot();
             }
             if (inputMessage.Content == "Stop")
             {
-                //サーバー停止時処理
-                logging.log("[MCMachineUI] Shutting down VM...");
-                Display = "サーバーをシャットダウンしています...";
-                refresh().GetAwaiter().GetResult();
-                Process process = Process.Start(shutdown);
-                process.WaitForExit();
-                Display = "サーバーをシャットダウンしました！";
-                refresh().GetAwaiter().GetResult();
+                MCShutdown();
             }
             if (inputMessage.Content == "Maintenance")
             {
-                logging.log("[MCMachineUI] Starting VM for maintenance...");
-
-                try
-                {
-                    //サーバー起動中のことを表示
-                    Display = "メンテナンスのためサーバーを起動しています...";
-                    refresh().GetAwaiter().GetResult();
-
-                    //起動プロセス呼び出し
-                    Process process = Process.Start(boot);
-                    process.WaitForExit();
-
-                    //サーバーIP取得
-                    logging.log("[MCMachineUI] VM Started. Getting Server IP...");
-                    process = Process.Start(GetIP);
-                    process.WaitForExit();
-                    string output = process.StandardOutput.ReadToEnd();
-                    IP[] ips = JsonSerializer.Deserialize<IP[]>(output);//デシリアライズ先オブジェクト作成
-                    string addr = "";
-                    //デシリアライズ
-                    foreach (IP i in ips)
-                    {
-                        if (i.name == resourceSet.settings["MineCraft-ip"]) { addr = i.ipAddress; }
-                    }
-
-                    //メッセージ送信
-                    Display = "メンテナンスのためサーバーを起動しました。アドレスは" + addr + "です。遊べない場合がありますのでご注意ください。";
-                    refresh().GetAwaiter().GetResult();
-                    return;
-                }
-                catch (Exception e)
-                {
-                    //エラー発生時はログを出力しエラー発生の旨Discordに送信する
-                    logging.log("[MCMachineUI] Error occured while processing boot. \n" + e);
-                    Display = "エラーが発生しました。\n" + e;
-                    refresh().GetAwaiter().GetResult();
-                    return;
-                }
+                MCMaintenance();
             }
+        }
+
+        public void MCBoot()//VM起動時処理
+        {
+            try
+            {
+                logging.log("[MCMachineUI] Starting VM...");
+
+                //サーバー起動中のことを表示
+                Display = "サーバーを起動しています...";
+                refresh().GetAwaiter().GetResult();
+
+                //起動プロセス呼び出し
+                Process process = Process.Start(boot);
+                process.WaitForExit();
+
+                //サーバーIP取得
+                logging.log("[MCMachineUI] VM Started. Getting Server IP...");
+                process = Process.Start(GetIP);
+                process.WaitForExit();
+                string output = process.StandardOutput.ReadToEnd();
+                IP[] ips = JsonSerializer.Deserialize<IP[]>(output);//デシリアライズ先オブジェクト作成
+                string addr = "";
+                //デシリアライズ
+                foreach (IP i in ips)
+                {
+                    if (i.name == resourceSet.settings["MineCraft-ip"]) { addr = i.ipAddress; }
+                }
+
+                //メッセージ送信
+                Display = "@everyone 起動しました！アドレスは" + addr + ":12345です、お楽しみください！";
+                booted = true;
+                refresh().GetAwaiter().GetResult();
+                return;
+            }
+            catch (Exception e)
+            {
+                //エラー発生時はログを出力しエラー発生の旨Discordに送信する
+                logging.log("[MCMachineUI] Error occured while processing boot. \n" + e);
+                Display = "エラーが発生しました。\n" + e;
+                refresh().GetAwaiter().GetResult();
+                return;
+            }
+        }
+
+        public void MCShutdown()
+        {
+            //サーバー停止時処理
+            logging.log("[MCMachineUI] Shutting down VM...");
+            Display = "サーバーをシャットダウンしています...";
+            refresh().GetAwaiter().GetResult();
+            Process process = Process.Start(shutdown);
+            process.WaitForExit();
+            booted = false;
+            Display = "サーバーをシャットダウンしました！";
+            refresh().GetAwaiter().GetResult();
+        }
+
+        public void MCMaintenance()
+        {
+            logging.log("[MCMachineUI] Starting VM for maintenance...");
+
+            try
+            {
+                //サーバー起動中のことを表示
+                Display = "メンテナンスのためサーバーを起動しています...";
+                refresh().GetAwaiter().GetResult();
+
+                //起動プロセス呼び出し
+                Process process = Process.Start(boot);
+                process.WaitForExit();
+
+                //サーバーIP取得
+                logging.log("[MCMachineUI] VM Started. Getting Server IP...");
+                process = Process.Start(GetIP);
+                process.WaitForExit();
+                string output = process.StandardOutput.ReadToEnd();
+                IP[] ips = JsonSerializer.Deserialize<IP[]>(output);//デシリアライズ先オブジェクト作成
+                string addr = "";
+                //デシリアライズ
+                foreach (IP i in ips)
+                {
+                    if (i.name == resourceSet.settings["MineCraft-ip"]) { addr = i.ipAddress; }
+                }
+
+                //メッセージ送信
+                Display = "メンテナンスのためサーバーを起動しました。アドレスは" + addr + "です。遊べない場合がありますのでご注意ください。";
+                booted = true;
+                refresh().GetAwaiter().GetResult();
+                return;
+            }
+            catch (Exception e)
+            {
+                //エラー発生時はログを出力しエラー発生の旨Discordに送信する
+                logging.log("[MCMachineUI] Error occured while processing boot. \n" + e);
+                Display = "エラーが発生しました。\n" + e;
+                refresh().GetAwaiter().GetResult();
+                return;
+            }
+
         }
 
         public override void UIReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction)
