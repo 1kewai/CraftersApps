@@ -29,7 +29,8 @@ namespace UI
         public async Task refresh()
         {
             if(Display == "") { return; }
-            CurrentMessage = (Discord::Rest.RestUserMessage)await channel.SendMessageAsync(Display);
+            if (CurrentMessage == null) { CurrentMessage = (global::Discord.Rest.RestUserMessage)await channel.SendMessageAsync(Display); }
+            if(Display != CurrentMessage.Content) { CurrentMessage = (global::Discord.Rest.RestUserMessage)await channel.SendMessageAsync(Display); }
         }
 
         public async Task WriteToChatLog(string message)
