@@ -38,7 +38,7 @@ namespace UI
             if (inputMessage.Content.StartsWith("/")) { connection.SendCommandAsync("say コマンドを実行します。"+inputMessage.Content).GetAwaiter().GetResult();return; }
             if (inputMessage.Content == "Stop")
             {
-                connection.SendCommandAsync("[予告]マイクラサーバーがあと１分でシャットダウンします。");
+                connection.SendCommandAsync("say [予告]マイクラサーバーがあと１分でシャットダウンします。");
                 return;
             }
             connection.SendCommandAsync("say [" + inputMessage.Author.Username + "] " + inputMessage.Content).GetAwaiter().GetResult();
