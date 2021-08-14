@@ -5,6 +5,7 @@ using Log = Log;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Timers;
+using System.Threading;
 
 namespace UI
 {
@@ -30,7 +31,7 @@ namespace UI
             GetIP.RedirectStandardOutput = true;
 
             //シャットダウンタイマーの設定
-            ShutdownTimer = new Timer(60 * 1000);
+            ShutdownTimer = new System.Timers.Timer(60 * 1000);
             ShutdownTimer.AutoReset = true;
             ShutdownTimer.Elapsed += (object source, ElapsedEventArgs e) =>
             {
@@ -115,6 +116,7 @@ namespace UI
             logging.log("[MCMachineUI] Shutting down VM...");
             Display = "サーバーをシャットダウンしています...";
             refresh().GetAwaiter().GetResult();
+            Thread.Sleep(60 * 1000);
             Process process = Process.Start(shutdown);
             process.WaitForExit();
             booted = false;

@@ -27,7 +27,21 @@ namespace UI
                 connection.ConnectAsync().GetAwaiter().GetResult();
             };
             connection.ConnectAsync().GetAwaiter().GetResult();
-            connection.SendCommandAsync("/say RCON起動完了").GetAwaiter().GetResult();
+            connection.SendCommandAsync("say RCON起動完了").GetAwaiter().GetResult();
+            logging.log("[RCON] Connected.");
+        }
+
+        public override void AllMessage(SocketMessage inputMessage)
+        {
+            if(inputMessage.Channel.Id == this.channel.Id) { return; }
+            if (inputMessage.Author.IsBot) { return; }
+            if (inputMessage.Content.StartsWith("/")) { connection.SendCommandAsync("say コマンドを実行します。"+inputMessage.Content).GetAwaiter().GetResult();return; }
+            if (inputMessage.Content == "Stop")
+            {
+                connection.SendCommandAsync("[予告]マイクラサーバーがあと１分でシャットダウンします。");
+                return;
+            }
+            connection.SendCommandAsync("say [" + inputMessage.Author.Username + "] " + inputMessage.Content).GetAwaiter().GetResult();
         }
 
         public override void UIMessageReceived(SocketMessage inputMessage)
@@ -45,12 +59,24 @@ namespace UI
                     WriteToChatLog("そのコマンドは禁止されています。").GetAwaiter().GetResult();
                     return;
                 }
-                connection.SendCommandAsync(inputMessage.Content);
+                if (inputMessage.Content.Contains("ban"))
+                {
+                    WriteToChatLog("そのコマンドは禁止されています。").GetAwaiter().GetResult();
+                    return;
+                }
+                if (inputMessage.Content.Contains("banip"))
+                {
+                    WriteToChatLog("そのコマンドは禁止されています。").GetAwaiter().GetResult();
+                    return;
+                }
+                connection.SendCommandAsync(inputMessage.Content.Split(char.Parse("/"))[1]).GetAwaiter().GetResult();
+                logging.log("[RCON] Command from Discord : " + inputMessage.Content.Split(char.Parse("/"))[1]);
+                WriteToChatLog("コマンドを実行しました!").GetAwaiter().GetResult();
                 return;
             }
             //モード変更等//開発中
             //チャット接続
-            connection.SendCommandAsync("/say [" + inputMessage.Author.Username + "] " + inputMessage.Content);
+            connection.SendCommandAsync("say [" + inputMessage.Author.Username + "] " + inputMessage.Content).GetAwaiter().GetResult();
         }
 
         public override void UIReactionAdded(Cacheable<IUserMessage, ulong> cache, ISocketMessageChannel inputchannel, SocketReaction inputReaction)

@@ -29,6 +29,7 @@ namespace UI
 
         public async Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage)
         {
+            AllMessage(inputMessage);
             if (inputMessage.Channel.Id != channel.Id) { return; }
             if (inputMessage.Author.IsBot) { return; }
             UIMessageReceived(inputMessage);
@@ -42,6 +43,7 @@ namespace UI
 
         //Abstract
         public abstract void UIMessageReceived(Discord::WebSocket.SocketMessage inputMessage);
+        public abstract void AllMessage(Discord::WebSocket.SocketMessage inputMessage);
         public abstract void UIReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction);
     }
 }
