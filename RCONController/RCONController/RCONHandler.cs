@@ -36,11 +36,6 @@ namespace UI
             if(inputMessage.Channel.Id == this.channel.Id) { return; }
             if (inputMessage.Author.IsBot) { return; }
             if (inputMessage.Content.StartsWith("/")) { connection.SendCommandAsync("say コマンドを実行します。"+inputMessage.Content).GetAwaiter().GetResult();return; }
-            if (inputMessage.Content == "Stop")
-            {
-                connection.SendCommandAsync("say [予告]マイクラサーバーがあと１分でシャットダウンします。");
-                return;
-            }
             connection.SendCommandAsync("say [" + inputMessage.Author.Username + "] " + inputMessage.Content).GetAwaiter().GetResult();
         }
 
@@ -67,6 +62,11 @@ namespace UI
                 if (inputMessage.Content.Contains("banip"))
                 {
                     WriteToChatLog("そのコマンドは禁止されています。").GetAwaiter().GetResult();
+                    return;
+                }
+                if (inputMessage.Content == "Stop")
+                {
+                    connection.SendCommandAsync("say [予告]マイクラサーバーがあと１分でシャットダウンします。");
                     return;
                 }
                 connection.SendCommandAsync(inputMessage.Content.Split(char.Parse("/"))[1]).GetAwaiter().GetResult();
