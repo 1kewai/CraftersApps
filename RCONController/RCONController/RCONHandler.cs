@@ -64,14 +64,14 @@ namespace UI
                     WriteToChatLog("そのコマンドは禁止されています。").GetAwaiter().GetResult();
                     return;
                 }
-                if (inputMessage.Content == "Stop")
-                {
-                    connection.SendCommandAsync("say [予告]マイクラサーバーがあと１分でシャットダウンします。");
-                    return;
-                }
                 connection.SendCommandAsync(inputMessage.Content.Split(char.Parse("/"))[1]).GetAwaiter().GetResult();
                 logging.log("[RCON] Command from Discord : " + inputMessage.Content.Split(char.Parse("/"))[1]);
                 WriteToChatLog("コマンドを実行しました!").GetAwaiter().GetResult();
+                return;
+            }
+            if (inputMessage.Content == "Stop")
+            {
+                connection.SendCommandAsync("say [予告]マイクラサーバーがあと１分でシャットダウンします。");
                 return;
             }
             //モード変更等//開発中
