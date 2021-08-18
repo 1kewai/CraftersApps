@@ -108,6 +108,10 @@ namespace DiscordCore
             UI::DiscordChatUI RCON = new UI::RCONHandler(channel0, logging, "", RS);
             UIList.Add(RCON);
 
+            //darknet追加
+            UI::DiscordChatUI darknet = new UI::Darknet(channel0, logging, "", RS);
+            UIList.Add(darknet);
+
             //CLIUI
             bool CLICONT = true;
             while (CLICONT)

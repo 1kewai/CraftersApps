@@ -71,7 +71,7 @@ namespace UI
             }
             if (inputMessage.Content == "Stop")
             {
-                connection.SendCommandAsync("say [予告]マイクラサーバーがあと１分でシャットダウンします。");
+                connection.SendCommandAsync("say [警告]マイクラサーバーがあと１分でシャットダウンします。");
                 return;
             }
             //モード変更等//開発中
