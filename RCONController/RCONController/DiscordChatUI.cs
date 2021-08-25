@@ -12,10 +12,13 @@ namespace UI
         public Discord::ITextChannel channel;
         public Log::Logging logging;
         public Resource::ResourceSet resourceSet;
+        Task thread;
 
 
         public DiscordChatUI(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources)
         {
+            thread = new Task(()=> { });
+            thread.Start();
             channel = inputChannel;
             this.logging = logging;
             resourceSet = resources;
@@ -29,16 +32,28 @@ namespace UI
 
         public async Task MessageReceived(Discord::WebSocket.SocketMessage inputMessage)
         {
-            AllMessage(inputMessage);
-            if (inputMessage.Channel.Id != channel.Id) { return; }
-            if (inputMessage.Author.IsBot) { return; }
-            UIMessageReceived(inputMessage);
+            thread.Wait();
+            thread = new Task(() =>
+              {
+
+                  AllMessage(inputMessage);
+                  if (inputMessage.Channel.Id != channel.Id) { return; }
+                  if (inputMessage.Author.IsBot) { return; }
+                  UIMessageReceived(inputMessage);
+              });
+            thread.Start();
         }
 
         public async Task ReactionAdded(Discord::Cacheable<Discord::IUserMessage, ulong> cache, Discord::WebSocket.ISocketMessageChannel inputchannel, Discord::WebSocket.SocketReaction inputReaction)
         {
-            if (inputchannel.Id != channel.Id) { return; }
-            UIReactionAdded(cache, inputchannel, inputReaction);
+            thread.Wait();
+            thread = new Task(() =>
+              {
+
+                  if (inputchannel.Id != channel.Id) { return; }
+                  UIReactionAdded(cache, inputchannel, inputReaction);
+              });
+            thread.Start();
         }
 
         //Abstract

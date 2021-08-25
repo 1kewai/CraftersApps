@@ -1,6 +1,7 @@
 ﻿using CoreRCON;
 using Discord;
 using Discord.WebSocket;
+using System;
 using System.Net;
 using System.Threading;
 using Discord = Discord;
@@ -11,6 +12,7 @@ namespace UI
 {
     class MineCraft : DiscordChatUI
     {
+        Timer Reconnector;
         RCON connection;
         public MineCraft(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
         {
@@ -24,18 +26,35 @@ namespace UI
             connection = new RCON(serveraddress, port, serverpass);
             connection.OnDisconnected += () =>
             {
-                connection.ConnectAsync().GetAwaiter().GetResult();
+                logging.log("[RCON] Connection disconnected.");
+                Thread.Sleep(10 * 1000);
+                try
+                {
+                    connection.ConnectAsync().GetAwaiter().GetResult();
+                }catch(Exception e)
+                {
+                    logging.log("[RCON] failed to reconnect. " + e);
+                }
             };
-            connection.ConnectAsync().GetAwaiter().GetResult();
-            connection.SendCommandAsync("say RCON起動完了").GetAwaiter().GetResult();
-            logging.log("[RCON] Connected.");
+            try
+            {
+                connection.ConnectAsync().GetAwaiter().GetResult();
+                connection.SendCommandAsync("say RCON起動完了").GetAwaiter().GetResult();
+                logging.log("[RCON] Connected.");
+            }catch(Exception e)
+            {
+                logging.log("[RCON] failed to initialize RCON connection. Retrying in 30 seconds///");
+                Thread.Sleep(30 * 1000);
+                connection.ConnectAsync().GetAwaiter().GetResult();
+                connection.SendCommandAsync("say RCON起動完了").GetAwaiter().GetResult();
+                logging.log("[RCON] Connected.");
+            }
         }
 
         public override void AllMessage(SocketMessage inputMessage)
         {
             if(inputMessage.Channel.Id == this.channel.Id) { return; }
             if (inputMessage.Author.IsBot) { return; }
-            if (inputMessage.Content.StartsWith("/")) { connection.SendCommandAsync("say コマンドを実行します。"+inputMessage.Content).GetAwaiter().GetResult();return; }
             connection.SendCommandAsync("say [" + inputMessage.Author.Username + "] " + inputMessage.Content).GetAwaiter().GetResult();
         }
 
