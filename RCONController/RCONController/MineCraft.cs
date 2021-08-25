@@ -9,10 +9,10 @@ using Resource = Resource;
 
 namespace UI
 {
-    class RCONHandler : DiscordChatUI
+    class MineCraft : DiscordChatUI
     {
         RCON connection;
-        public RCONHandler(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
+        public MineCraft(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)
         {
             logging.log("[RCON] Connecting to MC...");
 
@@ -63,6 +63,10 @@ namespace UI
                 {
                     WriteToChatLog("そのコマンドは禁止されています。").GetAwaiter().GetResult();
                     return;
+                }
+                if (inputMessage.Content.Contains("/stop"))
+                {
+                    WriteToChatLog("そのコマンドは禁止されています。").GetAwaiter().GetResult();
                 }
                 connection.SendCommandAsync(inputMessage.Content.Split(char.Parse("/"))[1]).GetAwaiter().GetResult();
                 logging.log("[RCON] Command from Discord : " + inputMessage.Content.Split(char.Parse("/"))[1]);

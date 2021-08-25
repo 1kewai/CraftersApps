@@ -105,7 +105,7 @@ namespace DiscordCore
 
             //RCONUIの追加
             SocketTextChannel channel0 = client.GetGuild(ulong.Parse(RS.settings["GuildID"])).GetTextChannel(ulong.Parse(RS.settings["RCON"]));
-            UI::DiscordChatUI RCON = new UI::RCONHandler(channel0, logging, "", RS);
+            UI::DiscordChatUI RCON = new UI::MineCraft(channel0, logging, "", RS);
             UIList.Add(RCON);
 
             //darknet追加
