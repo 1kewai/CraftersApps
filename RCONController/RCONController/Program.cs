@@ -23,7 +23,7 @@ namespace DiscordCore
         Log::Logging logging;
         List<UI::DiscordChatUI> UIList;
         Resource::property prop;
-        public static bool Restart = false
+        public static bool Restart = false;
 
         static void Main(string[] args)
         {

@@ -12,6 +12,7 @@ namespace UI
 {
     class MineCraft : DiscordChatUI
     {
+        //MineCraftの制御を行うUI
         Timer Reconnector;
         RCON connection;
         public MineCraft(Discord::ITextChannel inputChannel, Log::Logging logging, string initialmessage, Resource::ResourceSet resources) : base(inputChannel, logging, initialmessage, resources)

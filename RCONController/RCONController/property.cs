@@ -7,6 +7,7 @@ namespace Resource
 {
     class property
     {
+        //ファイルからプロパティを読み込むためのクラス
         //Field
         public Dictionary<string, string> settings;
         public void load()
